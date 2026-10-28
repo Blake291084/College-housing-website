@@ -1,0 +1,15 @@
+.live-map { height: 525px; background: #d9e2d1; }
+.map-shell { min-height: 525px; }
+.map-credit { margin-left: auto; color: var(--muted); }
+.leaflet-container { font-family: Manrope, Arial, sans-serif; background: #d9e2d1; }
+.leaflet-control-zoom { border: 1px solid var(--ink) !important; border-radius: 0 !important; box-shadow: none !important; margin-top: 54px !important; margin-left: 14px !important; }
+.leaflet-control-zoom a { background: var(--paper) !important; color: var(--ink) !important; border-bottom: 1px solid var(--ink) !important; border-radius: 0 !important; font-weight: 700; }
+.leaflet-control-zoom a:last-child { border-bottom: 0 !important; }
+.map-pin-wrap { background: transparent; border: 0; }
+.leaflet-pin { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; border: 3px solid var(--paper); box-shadow: 0 2px 0 rgba(29,35,32,.25); color: var(--paper); font: 500 .72rem 'DM Mono', monospace; }
+.campus-pin { width: 52px; height: 52px; background: var(--clay); font-family: Fraunces, Georgia, serif; }
+.housing-pin { background: var(--ink); }
+.leaflet-tooltip { border: 0 !important; border-radius: 0 !important; background: var(--paper) !important; color: var(--ink) !important; box-shadow: none !important; font: 500 .67rem 'DM Mono', monospace !important; letter-spacing: .05em; }
+.leaflet-tooltip-top:before { border-top-color: var(--paper) !important; }
+.leaflet-routing-container { display: none !important; }
+@media (max-width: 760px) { .live-map { height: 440px; } .map-credit { display: none; } }

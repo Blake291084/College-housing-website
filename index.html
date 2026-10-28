@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A multimodal English project about rising housing costs and college students." />
+    <title>Rent, Routes, and Reality</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="map.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Rent, Routes, and Reality home">
+        <span class="brand-mark">$</span>
+        <span>Rent, Routes,<br />and Reality</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#research">Research</a>
+        <a href="#explore">Explore housing</a>
+        <a href="#comparison">Compare</a>
+        <a href="#sources">Sources</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="eyebrow"><span></span> Multimodal English Project</div>
+        <p class="hero-kicker">Housing is more than a monthly bill. For students, it can determine time, access, and opportunity.</p>
+        <h1>How does the rising cost of housing affect college students?</h1>
+        <div class="hero-bottom">
+          <p>This project investigates how students balance rent, tuition, food, transportation, work, and time while trying to stay enrolled.</p>
+          <a class="scroll-link" href="#research">Start exploring <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <span class="orbit-dot dot-one"></span><span class="orbit-dot dot-two"></span><span class="orbit-dot dot-three"></span>
+          <span class="orbit-label">rent<br />time<br />school</span>
+        </div>
+      </section>
+
+      <section class="section research-section" id="research">
+        <div class="section-label">01 / Research context</div>
+        <div class="research-grid">
+          <div>
+            <h2>A housing decision is also a time decision.</h2>
+            <p class="lead">As housing costs rise, college students must make difficult choices about where they live, how much they work, and what they can afford.</p>
+          </div>
+          <div class="stat-block">
+            <div class="stat"><span class="stat-number">2<span class="decimal">.</span>1</span><span class="percent-sign">%</span></div>
+            <p>Year-over-year rise in U.S. house prices reported by the Federal Housing Finance Agency, 2025–2026.</p>
+          </div>
+        </div>
+        <div class="writing-grid">
+          <p>As of recent, the prices of housing have gone up quite substantially and because of this people are finding it hard to live and hard to balance their finances. The U.S. Federal Housing Finance Agency reports that just from 2025 to 2026 the house prices rose 2.1%. They also state that the housing market has been rising ever since 2012. These rising prices make finding somewhere decent to live hard since all the prices keep going up like crazy.</p>
+          <p>And while your everyday person is struggling with this, it is also hitting college students harder. In college you have to not only balance your budget, but you also must balance your time wisely. While in college you have to work a job, go to class, study for said class, and maybe just maybe have some free time in between.</p>
+          <p>But while trying to put your all into classes and get good grades you also must put in an ample amount of time into a job in order to be able to afford a housing unit and to pay tuition, and to also feed yourself and other small things in-between. But in order to get enough money you need to put in enough time, but your time is filled with going to class, doing schoolwork, and having to study for tests.</p>
+          <p>As you can see this loop is already so confusing and convoluted, so imagine going through this lifestyle every day. With housing prices rising it becomes increasingly difficult for students to be able to earn that money whether it be because of a low-paying job or because they just can’t fit in enough time to make enough money to live off of.</p>
+        </div>
+      </section>
+
+      <section class="section map-section" id="explore">
+        <div class="section-label">02 / Interactive case study</div>
+        <div class="map-intro">
+          <h2>What does housing near campus actually look like?</h2>
+          <p>Explore housing research near Texas Tech University in Lubbock, Texas. Select a housing option to compare its listed price, amenities, and distance to campus.</p>
+        </div>
+        <div class="map-layout">
+          <div class="map-shell" aria-label="Map of housing options near Texas Tech University">
+            <div class="map-toolbar"><span>LUBBOCK, TX</span><span>ZOOM · PAN · SELECT A MARKER</span></div>
+            <div class="live-map" id="liveMap" aria-label="Interactive map of housing options near Texas Tech University"></div>
+            <div class="map-legend"><span><i class="campus-key"></i> Texas Tech campus</span><span><i class="housing-key"></i> Housing option</span><span class="map-credit">Map data © OpenStreetMap</span></div>
+          </div>
+
+          <aside class="place-card" aria-live="polite">
+            <p class="card-overline" id="placeType">Campus</p>
+            <h3 id="placeName">Texas Tech University</h3>
+            <p class="place-summary" id="placeSummary">Select a housing marker to compare its listed price and commute with the Texas Tech campus.</p>
+            <div class="price-row" id="priceRow"><span>Case study</span><strong>TTU</strong></div>
+            <dl class="place-details" id="placeDetails">
+              <div><dt>Purpose</dt><dd>College campus</dd></div>
+              <div><dt>Explore</dt><dd>Choose A, B, or C</dd></div>
+            </dl>
+            <button class="route-button" id="routeButton" disabled>Show route to campus <span aria-hidden="true">↗</span></button>
+          </aside>
+        </div>
+        <p class="draft-note">This map uses the researched property locations and OpenStreetMap as a visual base. It does not track your location or show live rental listings. Route results are for visual comparison only; use the research table for the project’s reported travel times.</p>
+      </section>
+
+      <section class="section comparison-section" id="comparison">
+        <div class="section-label">03 / Housing comparison</div>
+        <div class="comparison-heading">
+          <h2>Nearer does not always mean more expensive.</h2>
+          <p>Three options near Texas Tech University show how price, distance, amenities, and lifestyle can interact. Figures below are advertised rents from the project research.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption class="sr-only">Comparison of three Lubbock housing options near Texas Tech University</caption>
+            <thead><tr><th>Option</th><th>Distance from TTU</th><th>Advertised rent</th><th>Bedroom options</th><th>Furnished?</th><th>Transit</th><th>Lifestyle marketed</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><span class="option-letter">A</span> U Lofts</th><td>2 min walk</td><td><strong>$899</strong><small>2 bed / 2 bath</small></td><td>Multiple styles</td><td>Yes</td><td>No shuttle/bus</td><td>Social; game rooms</td></tr>
+              <tr><th scope="row"><span class="option-letter">B</span> Troubadour</th><td>3 min walk</td><td><strong>$1,100–1,200</strong><small>2 bed / 2 bath</small></td><td>Multiple styles</td><td>Yes</td><td>No shuttle/bus</td><td>Luxury / resort; social</td></tr>
+              <tr><th scope="row"><span class="option-letter">C</span> Wildwood</th><td>1 hr 21 min walk<br />10 min drive</td><td><strong>$750–819</strong><small>2 bed / 2 bath</small></td><td>2 styles</td><td>Yes</td><td>Shuttle/bus access</td><td>All-inclusive college lifestyle</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="amenity-line"><span>Shared amenities reported across all three options:</span> Pool <i></i> Gym <i></i> Study spaces <i></i> Parking</div>
+      </section>
+
+      <section class="section reflection-section">
+        <div class="reflection-rule"></div>
+        <div class="reflection-copy">
+          <div class="section-label">04 / Reflection</div>
+          <h2>“Students still struggle to balance paying their tuition, paying their rent, paying for food and gas and more.”</h2>
+          <p>My first assumption was that housing farther from campus would be noticeably cheaper. The comparison complicates that idea: Wildwood is the least expensive option, but U Lofts is similarly priced while much closer to campus. Meanwhile, Wildwood’s shuttle access may lower the cost of transportation and help account for its distance.</p>
+          <p>This shows that a student’s decision cannot be measured by rent alone. The amount of time spent commuting, the cost of gas, access to transportation, and the pressure to work enough hours all matter alongside the listed monthly price.</p>
+        </div>
+      </section>
+
+      <section class="sources-section" id="sources">
+        <div>
+          <div class="section-label">05 / Sources</div>
+          <h2>Sources and references.</h2>
+        </div>
+        <div class="source-list">
+          <p><span>[01]</span> Fhfa. “U.S. House Prices Rise 2.1 Percent Year over Year; up 0.3 Percent Quarter over Quarter: FHFA.” <em>FHFA.gov</em>, 25 Aug. 2026.</p>
+          <a href="https://www.fhfa.gov/news/news-release/u.s.-house-prices-rise-2.1-percent-year-over-year-up-0.3-percent-quarter-over-quarter" target="_blank" rel="noreferrer">View source ↗</a>
+          <p><span>[02]</span> Property-location references used for the interactive map: <a href="https://uloftsapartments.com/location/" target="_blank" rel="noreferrer">U Lofts</a>, <a href="https://livetroubadour.com/" target="_blank" rel="noreferrer">Troubadour</a>, and <a href="https://wildwoodlubbock.com/" target="_blank" rel="noreferrer">Wildwood</a>.</p>
+          <p class="source-note">Apartment comparison information was collected for this project. Individual property sources and dates are listed here as they become available.</p>
+        </div>
+      </section>
+    </main>
+    <footer><span>HOUSING &amp; COLLEGE STUDENTS</span><a href="#top">Back to top ↑</a></footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
